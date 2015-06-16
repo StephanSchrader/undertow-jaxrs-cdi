@@ -24,28 +24,12 @@
  *
  * For more information, please refer to <http://unlicense.org>
  */
-package de.mustnotbenamed.quickstart.undertowserver.example;
+package de.mustnotbenamed.quickstart.undertowserver;
 
-import de.mustnotbenamed.quickstart.undertowserver.JaxRsResourceFinder;
-
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
-import java.util.Set;
-
-/**
- * @author schrader
- */
-@ApplicationScoped
-@ApplicationPath("/")
-public class JaxRsApplication extends Application {
-
-    @Inject
-    private JaxRsResourceFinder resourceFinder;
+public class CdiUndertowBootstrapTest extends UndertowBootstrapTest {
 
     @Override
-    public Set<Class<?>> getClasses() {
-        return resourceFinder.getClasses();
+    protected UndertowBootstrap createSUT() {
+        return new CdiUndertowBootstrap(new UndertowBootstrap.UndertowOptions());
     }
 }

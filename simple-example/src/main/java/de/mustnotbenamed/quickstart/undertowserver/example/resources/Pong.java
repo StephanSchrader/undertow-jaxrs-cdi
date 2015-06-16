@@ -40,4 +40,12 @@ public class Pong {
     public String getPing() {
         return ping;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Pong[");
+        sb.append("ping='").append(ping).append('\'');
+        sb.append(']');
+        return sb.toString();
+    }
 }
